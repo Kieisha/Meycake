@@ -13,7 +13,7 @@
 | `dashboard.html` | Admin dashboard + chart                  |
 | `orders.html`    | Admin order management table             |
 | `cakes.html`     | Cake management page                     |
-| `orderform.html` | so the orders gets into ther orders page |
+| `orderform.html` | so the orders gets into the orders page  |
 ---------------------------------------------------------------
 
 ---
