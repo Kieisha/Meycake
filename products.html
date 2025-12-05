@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Meycake – Products</title>
+
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&family=Playfair+Display:wght@600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+
+
+<nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm">
+  <div class="container">
+    <a class="navbar-brand fw-bold" href="home.html" style="font-family:'Playfair Display'; font-size:1.6rem;">
+      <span class="px-2 py-1 rounded-pill bg-dark text-white me-2">M</span> meycake
+    </a>
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+            data-bs-target="#navMenu">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+ 
+</button>
+
+    <div class="collapse navbar-collapse" id="navMenu">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item"><a class="nav-link" href="home.html">Home</a></li>
+        <li class="nav-item"><a class="nav-link active" href="products.html">Products</a></li>
+        <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+        <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+        <li class="nav-item"><a class="nav-link" href="index.html">Admin Login</a></li>
+      </ul>
+
+    </div>
+  </div>
+</nav>
+
+
+<header class="py-5 text-center" style="background:#F2B6C9;">
+  <h1 class="fw-bold" style="font-family:'Playfair Display'; color:#333;">
+    Our Cake Collection
+  </h1>
+  <p class="text-muted">Choose your favourite handcrafted cake.</p>
+</header>
+
+
+<section class="py-5">
+  <div class="container">
+    <div class="row g-4">
+
+    
+      <script>
+        const cakes = [
+          {
+            name: "Chocolate Cheesecake",
+            price: 13,
+            img: "Chocolate cheesecake.jpg"
+          },
+          {
+            name: "Strawberry Shortcake",
+            price: 13,
+            img: "Strawberry Shortcake.jpg"
+          },
+          {
+            name: "Matcha Millecrepe",
+            price: 15,
+            img: "Matcha Millcrepe.jpg"
+          },
+          {
+            name: "Summer Berry Cheesecake",
+            price: 12,
+            img: "Summer Berry Cheesecake.jpg"
+          },
+          {
+            name: "Red Velvet Bliss",
+            price: 15,
+            img: "Red Velvet Bliss.jpg"
+          },
+          {
+            name: "Caramel Crunch",
+            price: 12,
+            img: "Caramel Crunch.jpg"
+          }
+        ];
+      </script>
+
+      <div id="productGrid" class="row g-4"></div>
+
+    </div>
+  </div>
+</section>
+
+
+
+<footer class="text-center py-3 text-muted">
+  © 2025 Meycake — Sweetness in every slice.
+</footer>
+
+
+
+<script>
+  const grid = document.getElementById("productGrid");
+
+  cakes.forEach(cake => {
+    grid.innerHTML += `
+      <div class="col-md-4">
+        <div class="card shadow-sm border-0 h-100">
+
+          <img src="${cake.img}" class="card-img-top"
+  style="width:100%; height:300px; object-fit:cover; background:#fff; border:5px solid #d9d9d9;">
+
+
+          <div class="card-body text-center">
+            <h5 class="fw-semibold">${cake.name}</h5>
+            <p class="text-muted mb-1">RM ${cake.price}</p>
+            <a href="orderform.html" 
+   class="btn btn-dark rounded-pill px-4 mt-2">
+   Order Now
+</a>
+
+
+        </div>
+      </div>
+    `;
+  });
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

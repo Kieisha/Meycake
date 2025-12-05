@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Order Cake – Meycake</title>
+
+  <!-- Bootstrap -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+
+  <style>
+    body {
+      background: #FFD6E4;
+      font-family: 'Poppins', sans-serif;
+    }
+    .order-box {
+    max-width: 390px;         /* Ni untuk mey oder box caa */
+    width: 90%;               
+    margin: 40px auto;        
+    padding: 30px;
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+    .back-btn-container {
+      text-align: center;
+      margin-top: 25px;
+      margin-bottom: 40px;
+    }
+  </style>
+</head>
+
+<body>
+
+<div class="order-box">
+  <h2 class="fw-bold text-center">Order Cake</h2>
+  <p class="text-muted text-center mb-4">Fill in your details to place your order</p>
+
+  <form id="orderForm">
+
+    <div class="mb-3">
+      <label class="form-label">Your Name</label>
+      <input type="text" id="customerName" class="form-control" required>
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label">Cake Name</label>
+      <input type="text" id="cakeName" class="form-control" required>
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label">Amount</label>
+      <input type="number" id="amount" class="form-control" required>
+    </div>
+
+    <button class="btn btn-dark w-100 py-2">Place Order</button>
+
+  </form>
+</div>
+
+
+<div class="back-btn-container">
+  <a href="products.html" class="btn btn-outline-dark rounded-pill px-4">
+    Back 
+  </a>
+</div>
+
+<!-- SCRIPT: Auto-fill + Save Order -->
+<script>
+// ✔ Auto-fill cake name from URL
+const urlParams = new URLSearchParams(window.location.search);
+const cakeFromURL = urlParams.get("cake");
+
+if (cakeFromURL) {
+  document.getElementById("cakeName").value = cakeFromURL;
+}
+
+// ✔ Save order to LocalStorage
+document.getElementById("orderForm").addEventListener("submit", function(e) {
+  e.preventDefault();
+
+  let order = {
+    customer: document.getElementById("customerName").value,
+    cake: document.getElementById("cakeName").value,
+    amount: document.getElementById("amount").value,
+    status: "Pending",
+    date: new Date().toLocaleDateString()
+  };
+
+  let orders = JSON.parse(localStorage.getItem("orders")) || [];
+  orders.push(order);
+  localStorage.setItem("orders", JSON.stringify(orders));
+
+  alert("Order Successfully Placed!");
+  this.reset();
+});
+</script>
+
+</body>
+</html>
